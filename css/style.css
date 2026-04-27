@@ -1,0 +1,126 @@
+:root {
+    --primary: linear-gradient(135deg, #667eea, #764ba2);
+    --bg: #0f172a;
+    --glass: rgba(255,255,255,0.05);
+    --border: rgba(255,255,255,0.15);
+}
+
+/* BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui;
+    background: var(--bg);
+    color: #e2e8f0;
+}
+
+/* LOGO */
+.logo-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    padding: 15px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    transition: .3s;
+}
+
+.logo {
+    width: 120px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 12px;
+    padding: 6px;
+}
+
+/* TITULO */
+.main-title {
+    text-align: center;
+    padding: 120px 20px 50px;
+}
+
+.main-title h1 {
+    font-size: 3rem;
+    background: var(--primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* GRID */
+.exercises-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* CARD */
+.exercise-card {
+    position: relative;
+    padding: 30px;
+    border-radius: 20px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    text-decoration: none;
+    color: white;
+    transition: .3s;
+    overflow: hidden;
+}
+
+/* EFECTO GLOW */
+.exercise-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,#4facfe,#00f2fe);
+    opacity: 0;
+    transition: .3s;
+}
+
+.exercise-card:hover::after {
+    opacity: 0.08;
+}
+
+.exercise-card:hover {
+    transform: translateY(-10px);
+}
+
+/* ICON */
+.exercise-card i {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+/* WATERMARK */
+.watermark {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--glass);
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: #0f172a;
+}
+
+/* CANVAS */
+#particles-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* ANIMACION RIPPLE */
+@keyframes ripple {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
